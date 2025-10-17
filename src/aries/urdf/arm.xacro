@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- virtual arm base link on top of robot base_link -->
+    <link name="virtual_arm_base_link">
+    </link>
+
+    <joint name="virtual_arm_base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="virtual_arm_base_link"/>
+        <origin xyz="0.05121 0.0 0.2125" rpy="0.0 0.0 1.57"/>
+    </joint>
+
+    <!--Arm Base Link -->
+    <link name="arm_base_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1.5363204791731" />
+            <inertia
+                ixx="0.242660790998556"
+                ixy="-9.00009815481889E-05"
+                ixz="0.0234683038167963"
+                iyy="0.514730499629884"
+                iyz="2.70300300277055E-11"
+                izz="0.664242254581203" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh filename="${mesh_location}/arm_base.stl" />
+            </geometry>
+            <material
+                name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh filename="${mesh_location}/arm_base.stl" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="arm_base_joint" type="revolute">
+        <parent link="virtual_arm_base_link"/>
+        <child link="arm_base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="500" velocity="1.0" lower="-3.14" upper="3.14"/>
+        <dynamics damping="10" friction="2"/>
+    </joint>
+
+    <!--Arm Shoulder Link -->
+    <link name="arm_shoulder_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1.5363204791731" />
+            <inertia
+                ixx="0.242660790998556"
+                ixy="-9.00009815481889E-05"
+                ixz="0.0234683038167963"
+                iyy="0.514730499629884"
+                iyz="2.70300300277055E-11"
+                izz="0.664242254581203" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh filename="${mesh_location}/arm_shoulder.stl" />
+            </geometry>
+            <material
+                name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh filename="${mesh_location}/arm_shoulder.stl" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="arm_shoulder_joint" type="revolute">
+        <parent link="arm_base_link"/>
+        <child link="arm_shoulder_link"/>
+        <origin xyz="0.0 0.0 0.2104" rpy="0.0 0.0 0.0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="500" velocity="1.0" lower="-1.918" upper="1.918"/>
+        <dynamics damping="10" friction="2"/>
+    </joint>
+
+    <!--Arm Elbow Link -->
+    <link name="arm_elbow_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1.5363204791731" />
+            <inertia
+                ixx="0.242660790998556"
+                ixy="-9.00009815481889E-05"
+                ixz="0.0234683038167963"
+                iyy="0.514730499629884"
+                iyz="2.70300300277055E-11"
+                izz="0.664242254581203" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh filename="${mesh_location}/arm_elbow.stl" />
+            </geometry>
+            <material
+                name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh filename="${mesh_location}/arm_elbow.stl" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="arm_elbow_joint" type="revolute">
+        <parent link="arm_shoulder_link"/>
+        <child link="arm_elbow_link"/>
+        <origin xyz="0.0 0.0 0.4186" rpy="0.0 0.0 0.0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="500" velocity="1.0" lower="-1.748" upper="1.748"/>
+        <dynamics damping="10" friction="2"/>
+    </joint>
+
+
+    <link name="arm_gripper_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1.5363204791731" />
+            <inertia
+                ixx="0.242660790998556"
+                ixy="-9.00009815481889E-05"
+                ixz="0.0234683038167963"
+                iyy="0.514730499629884"
+                iyz="2.70300300277055E-11"
+                izz="0.664242254581203" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh filename="${mesh_location}/arm_gripper.stl" />
+            </geometry>
+            <material
+                name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"
+                    rpy="0 0 0" />
+            <geometry>
+                <mesh filename="${mesh_location}/arm_gripper.stl" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="arm_gripper_joint" type="revolute">
+        <parent link="arm_elbow_link"/>
+        <child link="arm_gripper_link"/>
+        <origin xyz="0.0 0.0 0.4159" rpy="0.0 0.0 0.0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="500" velocity="1.0" lower="-1.942" upper="1.942"/>
+        <dynamics damping="10" friction="2"/>
+    </joint>
+
+
+    
+    
+  
+    
+
+    
+</robot>
