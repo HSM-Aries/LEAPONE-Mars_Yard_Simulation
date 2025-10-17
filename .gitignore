@@ -1,9 +1,15 @@
-# ROS 2 / colcon
+# Build/ROS2
 build/
 install/
 log/
 .colcon/
 .ros/
+
+# VS Code
+.vscode/
+!/.vscode/settings.json
+!/.vscode/tasks.json
+!/.vscode/extensions.json
 
 # CMake
 CMakeFiles/
@@ -15,13 +21,7 @@ Makefile
 __pycache__/
 *.pyc
 
-# VS Code (keep common project files if you like)
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
-!.vscode/tasks.json
-
-# Misc
-*.db
-.DS_Store
-Thumbs.db
+# Project-specific
+src/.vscode/
+src/.vscode/*.db
+src/aries.zip
