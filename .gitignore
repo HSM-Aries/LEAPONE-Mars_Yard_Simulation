@@ -1,0 +1,27 @@
+# ROS 2 / colcon
+build/
+install/
+log/
+.colcon/
+.ros/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code (keep common project files if you like)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+# Misc
+*.db
+.DS_Store
+Thumbs.db
