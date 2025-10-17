@@ -20,5 +20,5 @@ __pycache__/
 *.pyc
 
 # Project-specific big stuff
-src/.vscode/*.db
+
 src/aries.zip
