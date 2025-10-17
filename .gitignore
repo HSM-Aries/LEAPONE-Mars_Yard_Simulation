@@ -1,24 +1,22 @@
-# ROS 2 / colcon
 build/
 install/
 log/
-.colcon/
-.ros/
+.colcon_release/
+.colcon_cache/
+.colcon_install_cache/
 
-# VS Code
-.vscode/
-src/.vscode/
-
-# CMake
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
 
-# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.egg-info/
 
-# Project-specific big stuff
-
-src/aries.zip
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
