@@ -1,25 +1,27 @@
-# Aries-Mars Rover workspace discription and instructions
+# LEAPONE Mars Surface Simulation
 
 ## Pre-requisites
+Ubuntu 22.04: https://releases.ubuntu.com/jammy/
 
-ROS2 Jazzy/Humble  
+ROS2 Humble: https://docs.ros.org/en/humble/index.html  
+
 Gazebo Harmonic or up
 
 ## Sensor used
 
-imu  
+IMU  
 Realsense D435i Camera  
-Lidar  
+3D Lidar  
 
 
-## installation
-1.  for clone this repo into your home directiory using terminal
+## Installation
+1.  Clone this repository
 
     ```
     git clone https://github.com/shreyaspatel3010/aries.git
     ```
 
-3. source workspace
+3. Source the Workspace
 
    ```
    cd aries
@@ -27,7 +29,7 @@ Lidar
    source install/setup.bash
    ```
 
-4. command for auto detect dependency and install to run file
+4. Install dependencies
    
 	  ```
 	  rosdep install --from-paths src -r -y
@@ -35,9 +37,9 @@ Lidar
 > [!IMPORTANT]
 > Change mesh location from common_properties.xacro which is in urdf files
 
-## Launch detaiis
+## Launch Details
 
-### Rviz + gui
+### Rviz + GUI
   ```
   ros2 launch aries display.launch.xml
   ```
@@ -46,9 +48,11 @@ Lidar
   ros2 launch aries my_robot.launch.xml
   ```
 
-## Teleop
-from src/aries/script run teleop_keyboard.py in treminal
+## Teleop Function
+
+
   ```
+  cd /src/aries/script
   python3 teleop_keyboard.py
   ```
 > [!NOTE]
